@@ -4,6 +4,10 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * @author yos
+ *
+ */
 public class Triangle {
 	private final static String DELIMITER="\\s*,?\\s*";
 	private final static String NUMBER="(\\d+)";
