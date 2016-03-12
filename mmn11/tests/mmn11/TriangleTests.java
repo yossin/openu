@@ -42,12 +42,6 @@ public class TriangleTests {
 	
 	@Test
 	public void testArea() {
-		try {
-			assertEquals(1+1+3,Triangle.area(1, 1, 3));
-			fail("invalid edges, we should not get here..");
-		} catch (IllegalArgumentException e){
-			// expect getting here..
-		}
 		assertEquals(1+2+3, Triangle.area(1, 2, 3));
 		assertEquals(2+2+3, Triangle.area(2, 2, 3));
 	}
@@ -85,23 +79,19 @@ public class TriangleTests {
 	
 	@Test
 	public void testInvalidInput() {
-		simulateInvalidInput("1,2");
-		simulateInvalidInput("1, 2");
-		simulateInvalidInput("1 2");
-		simulateInvalidInput("1");
-		simulateInvalidInput("-1,2 3");
-		simulateInvalidInput("-1,-1 3");
+		simulateInvalidInput("-1 2 3");
+		simulateInvalidInput("1 -2 3");
 	}
 
 	@Test
 	public void simulateInvalidEdgesInput() {
-		simulateInvalidEdgesInput("1,2,0");
-		simulateInvalidEdgesInput("1,3,1");
+		simulateInvalidEdgesInput("1 2 0");
+		simulateInvalidEdgesInput("1 3 1");
 	}
 
 	@Test
 	public void simulateValidInput() {
-		simulateValidInput("1,2,3", 1+2+3, 0);
-		simulateValidInput("2,2,3", 2+2+3, perimeter223);
+		simulateValidInput("1 2 3", 1+2+3, 0);
+		simulateValidInput("2 2 3", 2+2+3, perimeter223);
 	}
 }
