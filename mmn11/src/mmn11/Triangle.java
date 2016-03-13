@@ -7,6 +7,9 @@ import java.util.Scanner;
  *
  */
 public class Triangle {
+	final static String INVALID_EDGES_LENGTHS="please enter a valid edge lengths - for each x,y,z in (Edges:a,b,c) x+y>=z";
+	final static String INVALID_EDGES_NUM="expected 3 integers that are greater than 0 (ex: 1 2 3)";
+	
 	static boolean validateEdges(int a, int b, int c){
 		return (a+b>=c &&
 			a+c>=b &&
@@ -30,10 +33,10 @@ public class Triangle {
 				System.out.println(String.format("area: %d", area(a,b,c)));
 				System.out.println(String.format("perimeter: %f", heronPerimeter(a,b,c)));
 			} else {
-				System.out.println("please enter a valid edge lengths - for each x,y,z in (Edges:a,b,c) x+y>=z");
+				System.out.println(INVALID_EDGES_LENGTHS);
 			}
 		} else {
-			System.out.println("expected 3 integers that are greater than 0 (ex: 1 2 3)");
+			System.out.println(INVALID_EDGES_NUM);
 		}
 	}
 

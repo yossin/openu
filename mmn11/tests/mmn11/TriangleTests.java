@@ -60,14 +60,18 @@ public class TriangleTests {
 		Triangle.main(new String[]{});
 		return out.toString();
 	}
-
-	private void simulateInvalidInput(String input){
+	
+	private void simulateOutput(String input, String expectedOutput, int lineNum){
 		String out = simulateRun(input);
-		assertTrue(String.format("invalid input: %s", input), out.split("\n")[2].startsWith("expected 3 integers"));
+		String line = out.split("\n")[lineNum];
+		assertEquals(expectedOutput, line);
+	}
+	
+	private void simulateInvalidInput(String input){
+		simulateOutput(input, Triangle.INVALID_EDGES_NUM,2);
 	}
 	private void simulateInvalidEdgesInput(String input){
-		String out = simulateRun(input);
-		assertTrue(String.format("invalid edges input: %s", input), out.split("\n")[2].startsWith("please enter a valid edge lengths"));
+		simulateOutput(input, Triangle.INVALID_EDGES_LENGTHS,2);
 	}
 
 	private void simulateValidInput(String input, int area, double perimeter){
