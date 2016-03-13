@@ -12,6 +12,11 @@ public class Einstein {
 	final static String SUCCESS="SUCCEEDED‬‬";
 	final static String FAIL="FAILED";
 	
+	/**
+	 * @param num - number to validate
+	 * @param validationResult - describe the validation result (output parameter)
+	 * @return validation append INVALID_3_DIGIT or INVALID_FIRST_LAST in case of a validation error into 
+	 */
 	static boolean validateNum(int num, StringBuilder validationResult){
 		if (num<100 || num>999){
 			validationResult.append(INVALID_3_DIGIT);
@@ -23,6 +28,10 @@ public class Einstein {
 		}
 		return true;
 	}
+	/**
+	 * @param num
+	 * @return reverse num (eg: 123 will resilt 321)
+	 */
 	static int reverseNum(int num){
 		return (num%10*100)
 				+ ((num/10)%10)*10
@@ -30,6 +39,9 @@ public class Einstein {
 	}
 
 	
+	/**
+	 * @param args - no args are required
+	 */
 	public static void main(String[] args) {
 		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);

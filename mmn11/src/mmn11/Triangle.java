@@ -10,18 +10,39 @@ public class Triangle {
 	final static String INVALID_EDGES_LENGTHS="please enter a valid edge lengths - for each x,y,z in (Edges:a,b,c) x+y>=z";
 	final static String INVALID_EDGES_NUM="expected 3 integers that are greater than 0 (ex: 1 2 3)";
 	
+	/**
+	 * @param a
+	 * @param b
+	 * @param c
+	 * @return return true if for each x,y,z in (Edges:a,b,c) x+y>=z, else return false
+	 */
 	static boolean validateEdges(int a, int b, int c){
 		return (a+b>=c &&
 			a+c>=b &&
 			b+c>=a);
 	}
+	/**
+	 * @param a
+	 * @param b
+	 * @param c
+	 * @return area (a+b+c)
+	 */
 	static int area(int a, int b, int c){
 		return a+b+c;
 	}
+	/**
+	 * @param a
+	 * @param b
+	 * @param c
+	 * @return heron perimeter of a,b,c
+	 */
 	static double heronPerimeter(int a, int b, int c){
 		double s=area(a,b,c)/2.0;
 		return Math.pow(s*(s-a)*(s-b)*(s-c),0.5);
 	}
+	/**
+	 * @param args - no args are required
+	 */
 	public static void main(String[] args) {
 		@SuppressWarnings("resource")
 		Scanner scan = new Scanner(System.in);
