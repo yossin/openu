@@ -13,7 +13,7 @@ public class RGBColor {
 	 * @param value
 	 * @return True if value is between 0-255
 	 */
-	private static boolean isValid(int value){
+	static boolean isValid(int value){
 		return value>=0 && value<=255;
 	}
 	/**
