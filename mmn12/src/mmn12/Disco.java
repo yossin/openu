@@ -11,6 +11,12 @@ public class Disco {
 	private LightBulb _bulb3;
 	private LightBulb _bulb4;
 	
+	/**
+	 * @param bulb1
+	 * @param bulb2
+	 * @param bulb3
+	 * @param bulb4
+	 */
 	public Disco(LightBulb bulb1, LightBulb bulb2, LightBulb bulb3, LightBulb bulb4){
 		_bulb1=bulb1;
 		_bulb2=bulb2;
@@ -31,6 +37,10 @@ public class Disco {
 		return _bulb4;
 	}
 	
+	/**
+	 * @param num
+	 * switch bulb. number should be between 1-4, otherwise we throw IllegalArgumentException 
+	 */
 	public void switchBulb(int num){
 		switch(num){
 		case 1:
@@ -50,23 +60,37 @@ public class Disco {
 		}
 	}
 	
+	/**
+	 * @param bulb
+	 * @param state - desired state
+	 * turn bulb on / off (according to the desired state)
+	 */
 	private static void turn(LightBulb bulb, boolean state){
 		if (bulb.isSwitchedOn() != state){
 			bulb.switchLight();
 		}
 	}
+	/**
+	 * turn all on
+	 */
 	public void turnAllOn(){
 		turn(_bulb1, true);
 		turn(_bulb2, true);
 		turn(_bulb3, true);
 		turn(_bulb4, true);
 	}
+	/**
+	 * turn all off
+	 */
 	public void turnAllOff(){
 		turn(_bulb1, false);
 		turn(_bulb2, false);
 		turn(_bulb3, false);
 		turn(_bulb4, false);
 	}
+	/**
+	 * @return true if all are on, otherwise return flase
+	 */
 	public boolean areAllOn(){
 		return (_bulb1.isSwitchedOn() 
 				&& _bulb2.isSwitchedOn()
@@ -74,6 +98,9 @@ public class Disco {
 				&& _bulb4.isSwitchedOn());
 	}
 
+	/**
+	 * @return true if all off, otherwise false
+	 */
 	public boolean areAllOff(){
 		return (!_bulb1.isSwitchedOn() 
 				&& !_bulb2.isSwitchedOn()
@@ -81,6 +108,9 @@ public class Disco {
 				&& !_bulb4.isSwitchedOn());
 	}
 
+	/**
+	 * @return true if all bulbs have the same color, otherwise false
+	 */
 	public boolean allSameColor(){
 		return (_bulb1.getColor().equals(_bulb2.getColor())
 				&& _bulb3.getColor().equals(_bulb4.getColor())
