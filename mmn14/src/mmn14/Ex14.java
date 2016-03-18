@@ -154,6 +154,18 @@ public class Ex14 {
 		}
 	}
 	
+	/**
+	 * @param text
+	 * @param index
+	 * @return rotate char at index 
+	 * Ex: 
+	 * <ul>
+	 * <li>text:'abc' with index 1 becomes 'acc'</li> 
+	 * <li>text:'zaa' with index 0 becomes 'Aba' </li>
+	 * <li>text:'Zaa' with index 0 becomes 'aaa' </li>
+	 * </ul>
+	 * 
+	 */
 	private static String rotateChar(String text, int index){
 		char nextChar=text.charAt(index);
 		if (nextChar == 'Z'){ 	// done with UPPER case
@@ -171,6 +183,18 @@ public class Ex14 {
 		}
 	}
 	
+	/**
+	 * @param password
+	 * @param pass
+	 * @param length
+	 * @param index
+	 * @return recursive password search 
+	 * check if pass (text) matches a given password (by length)
+	 * if there is a match - return found pass (text)
+	 * otherwise - rotate pass, at the given index
+	 *  proceed recursively forward (if all options for index have already been tried)
+	 *  otherwise rotate recursively from the beginning (for every index>0)
+	 */
 	private static String findPassword(Password password, String pass, int length, int index){
 		//make sure generated password is in the required length
 		//by adding 'A' to the password string
@@ -182,22 +206,24 @@ public class Ex14 {
 		if (password.isPassword(pass)){
 			return pass;
 		}
-		//System.out.println(pass);
+		
 		if (index==length){
 			throw new IllegalArgumentException("index cannot be equal to len");
 		}
 		
-		// iterating according to 
-		// index (current iterated position)
-		// maxIndex (maximal length that is being iterated)
 		pass = rotateChar(pass, index);
-		if (pass.charAt(index)=='A'){
+		if (pass.charAt(index)=='A'){ // finished rotating  index, go next
 			return findPassword(password, pass, length, index+1);
-		} else {
+		} else { // rotate whole pass (from index 0)
 			return findPassword(password, pass, length, 0);
 		}
 	}
 	
+	/**
+	 * @param password
+	 * @param length
+	 * @return find password text for a given Password, length 
+	 */
 	public static String findPassword(Password password, int length){
 		return findPassword(password, "", length, 0);
 	}
