@@ -99,10 +99,18 @@ public class RGBColor {
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof RGBColor){
-			return obj.toString().equals(toString());
+			return equals((RGBColor)obj);
 		} else {
 			return super.equals(obj);
 		}
+	}
+	
+	/**
+	 * @param other
+	 * @return implement equals as requested
+	 */
+	public boolean equals(RGBColor other) {
+		return toString().equals(other.toString());
 	}
 	
 	/**
