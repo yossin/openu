@@ -13,11 +13,6 @@ public class DiscoTester {
 
         Disco disco = new Disco(lightBulb1, lightBulb2, lightBulb3, lightBulb4);
         
-        LightBulb l1 = disco.getFirstBulb();
-        LightBulb l2 = disco.getSecondBulb();
-        LightBulb l3 = disco.getThirdBulb();
-        LightBulb l4 = disco.getFourthBulb();
-        
         System.out.println("1) Are all on? "+disco.areAllOn());
         System.out.println("2) Are all off? "+disco.areAllOff());
 

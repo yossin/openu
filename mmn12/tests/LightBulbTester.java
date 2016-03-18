@@ -7,8 +7,6 @@ public class LightBulbTester
     {
         // Create two light bulb objects
         LightBulb l1 = new LightBulb(127,0,127);
-        LightBulb l2 = new LightBulb(new RGBColor(127,0,127));
-        LightBulb l3 = new LightBulb(l2);
         
         // Print (test the get method)
         System.out.println("Welcome to LightBulb tester");
