@@ -1,6 +1,4 @@
-package mmn13;
 
-import mmn12.RGBColor;
 
 /**
  * @author yos

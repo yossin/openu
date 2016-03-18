@@ -1,12 +1,10 @@
-package mmn13;
+
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertArrayEquals;
 
 import org.junit.Before;
 import org.junit.Test;
-
-import mmn12.RGBColor;
 
 /**
  * @author yos
