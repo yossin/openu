@@ -1,12 +1,12 @@
 package mmn14;
 
-import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
+
+import org.junit.Test;
 
 /**
  * @author yos
