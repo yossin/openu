@@ -8,6 +8,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import org.junit.Test;
 
+import mmn14.Ex14.Password;
+
 /**
  * @author yos
  *
@@ -52,6 +54,28 @@ public class Ex14Tests {
 		assertEquals(1, Ex14.domino(1,2));
 		assertEquals(2, Ex14.domino(2,2));
 		assertEquals(3, Ex14.domino(2,3));
+	}
+	
+	@Test
+	public void testPassword(){
+		for (int i=0;i<100;i++){
+			Password password = new Password(i);
+			String pass = password.getPassword();
+			assertEquals(i, pass.length());
+			assertEquals(true, pass.matches(String.format("[a-z,A-Z]{%d,%d}",i,i)));
+		}
+	}
+
+	
+	/**
+	 * run with -Xss1024m flag
+	 * max length tested is 4
+	 */
+	@Test
+	public void testFindPassword(){
+		int len=4;
+		Password p = new Password(len);
+		assertEquals(p.getPassword(), Ex14.findPassword(p, len));
 	}
 
 	

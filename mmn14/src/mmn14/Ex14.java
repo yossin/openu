@@ -1,5 +1,7 @@
 package mmn14;
 
+import java.util.Random;
+
 public class Ex14 {
 
 	/**
@@ -129,6 +131,75 @@ public class Ex14 {
 		} else {
 			throw new IllegalArgumentException(String.format("unable to cover %d x %d board", m,n));
 		}
+	}
+	
+	
+	public static class Password{
+		private final static int AlphabetLen ='z'-'a';
+		private final String password;
+		public Password(int length){
+			Random random = new Random();
+			char pass[]=new char[length]; 
+			for (int i=0;i<length; i++){
+				char b=random.nextBoolean()?'A':'a';
+				pass[i]=(char)(b+(Math.abs(random.nextInt())%AlphabetLen)); 
+			}
+			this.password=new String(pass);
+		}
+		public String getPassword() {
+			return password;
+		}
+		public boolean isPassword(String pass){
+			return password.equals(pass);
+		}
+	}
+	
+	private static String rotateChar(String text, int index){
+		char nextChar=text.charAt(index);
+		if (nextChar == 'Z'){ 	// done with UPPER case
+			nextChar='a';		// continue into LOWER
+		} else if (nextChar=='z'){ 	// done with LOWER case
+			nextChar='A';			// continue to UPPER
+		} else {
+			nextChar++;
+		}
+		// create a new string with changed char
+		if (index+1<text.length()){
+			return text.substring(0,index)+nextChar+text.substring(index+1);
+		} else {
+			return text.substring(0,index)+nextChar;			
+		}
+	}
+	
+	private static String findPassword(Password password, String pass, int length, int index){
+		//make sure generated password is in the required length
+		//by adding 'A' to the password string
+		if (pass.length()<length){
+			return findPassword(password, pass+"A",length, 0);
+		}
+		
+		// is that the password
+		if (password.isPassword(pass)){
+			return pass;
+		}
+		//System.out.println(pass);
+		if (index==length){
+			throw new IllegalArgumentException("index cannot be equal to len");
+		}
+		
+		// iterating according to 
+		// index (current iterated position)
+		// maxIndex (maximal length that is being iterated)
+		pass = rotateChar(pass, index);
+		if (pass.charAt(index)=='A'){
+			return findPassword(password, pass, length, index+1);
+		} else {
+			return findPassword(password, pass, length, 0);
+		}
+	}
+	
+	public static String findPassword(Password password, int length){
+		return findPassword(password, "", length, 0);
 	}
 	
 }
