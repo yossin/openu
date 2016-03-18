@@ -1,0 +1,6 @@
+Welcome to LightBulb tester
+1) The color of the LightBulb object is (127,0,127)
+2) The new color of the LightBulb object is :(50,40,30) Off
+3) LightBulb object is switched on? false
+4) LightBulb after switchLight():(50,40,30) On
+Good luck!

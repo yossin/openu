@@ -1,0 +1,10 @@
+Welcome to RGB Color tester
+1)color1 R:127 G:0 B:127
+2)color2 R:127 G:0 B:127
+3)color3 R:0 G:0 B:0
+4) The new color1 is:(100,100,100)
+5) color1 mixed with color2:(113,50,113)
+6) color1 inverted:(155,155,155)
+7) (155,155,155) equals (113,50,113) = false
+8) color1 in grayscale: 155.0
+Good luck!

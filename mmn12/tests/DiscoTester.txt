@@ -1,0 +1,9 @@
+Welcome to Disco tester
+1) Are all on? false
+2) Are all off? true
+3) Are all on after turning all on? true
+4) Are all off after turning all on? false
+5) Are all on after turning all on and switching  bulb 1? false
+6) Are all off after turning all on and switching  bulb 1? false
+7) Are all same color? false
+Good luck!
