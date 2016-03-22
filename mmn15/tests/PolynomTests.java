@@ -6,8 +6,6 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import mmn15.PolyNode;
-import mmn15.Polynom;
 
 
 /**

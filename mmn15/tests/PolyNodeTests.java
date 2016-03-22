@@ -5,8 +5,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import mmn15.PolyNode;
-
 
 /**
  * @author yos
