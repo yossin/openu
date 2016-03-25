@@ -51,6 +51,8 @@ public class EinsteinTests {
 		simulateOutput("", Einstein.INVALID_3_DIGIT,2);
 		simulateOutput("1", Einstein.INVALID_3_DIGIT,2);
 		simulateOutput("12", Einstein.INVALID_3_DIGIT,2);
+		simulateOutput("012", Einstein.INVALID_3_DIGIT,2);
+		simulateOutput("002", Einstein.INVALID_3_DIGIT,2);
 		simulateOutput("1112", Einstein.INVALID_3_DIGIT,2);
 		simulateOutput("-112", Einstein.INVALID_3_DIGIT,2);
 	}
