@@ -149,7 +149,7 @@ public class Polynom {
 	
 	/**
 	 * multiply polynom
-	 * <br><b>efficiency: o(n+m)</b> where n is the number of elements in polynom, m is the number of element in this.
+	 * <br><b>efficiency: o(n*m)</b> where n is the number of elements in polynom, m is the number of element in this.
 	 * @param polynom
 	 * @return this polynom
 	 */
@@ -185,6 +185,29 @@ public class Polynom {
 				}
 			}
 			
+		}
+		return this;
+	}
+	
+	
+	
+	/**
+	 * polynom differential
+	 * <br><b>efficiency: o(n)</b> where n is the number of elements in this polynom.
+	 * @return this polynom
+	 */
+	public Polynom differential(){
+		if (head != null){
+			PolyNode node=head,prev=null;
+			do {
+				node.setCoefficient(node.getCoefficient()*node.getPower());
+				node.setPower(node.getPower()-1);
+				prev=node;
+			} while ((node=node.getNext())!=null && node.getPower()>0);
+			prev.setNext(null);
+			if (head.toString().isEmpty()){
+				head=null;
+			}
 		}
 		return this;
 	}

@@ -104,5 +104,17 @@ public class PolynomTests {
 		assertEquals("8x^5+45x^4-139x^3+46x^2+57x-105", p.multPol(q).toString());
 	}
 
+	@Test
+	public void testDifferential(){
+		Polynom p = createPolynom(new double[][]{
+			new double[]{3.0,8.0},
+			new double[]{2.0,-3.0},
+			new double[]{1.0,-1.0},
+			new double[]{0.0,7.0},
+			});
+		
+		assertEquals("8x^3-3x^2-x+7", p.toString());
+		assertEquals("24x^2-6x-1", p.differential().toString());
+	}
 	
 }
