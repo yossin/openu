@@ -13,7 +13,13 @@ import org.junit.Test;
  */
 public class PolynomTests {
 
-	
+	private static Polynom createPolynom (double[]...pols){
+		Polynom polynom = new Polynom();
+		for (double pol[]:pols){
+			polynom.addNode(new PolyNode((int)pol[0], pol[1]));
+		}
+		return polynom;
+	}
 
 	private static Polynom createPolynom (int maxPower, double coefficient){
 		Polynom polynom = new Polynom();
@@ -79,4 +85,24 @@ public class PolynomTests {
 	}
 
 
+	@Test
+	public void testMulPol(){
+		Polynom p = createPolynom(new double[][]{
+			new double[]{3.0,8.0},
+			new double[]{2.0,-3.0},
+			new double[]{1.0,-1.0},
+			new double[]{0.0,7.0},
+			});
+		Polynom q = createPolynom(new double[][]{
+			new double[]{2.0,1.0},
+			new double[]{1.0,6.0},
+			new double[]{0.0,-15.0},
+			});
+		
+		assertEquals("8x^3-3x^2-x+7", p.toString());
+		assertEquals("x^2+6x-15", q.toString());
+		assertEquals("8x^5+45x^4-139x^3+46x^2+57x-105", p.multPol(q).toString());
+	}
+
+	
 }

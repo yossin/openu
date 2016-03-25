@@ -1,5 +1,3 @@
-
-
 /**
  * @author yos
  *
@@ -145,6 +143,48 @@ public class Polynom {
 					head=node;
 				}
 			}
+		}
+		return this;
+	}
+	
+	/**
+	 * multiply polynom
+	 * <br><b>efficiency: o(n+m)</b> where n is the number of elements in polynom, m is the number of element in this.
+	 * @param polynom
+	 * @return this polynom
+	 */
+	public Polynom multPol(Polynom polynom){
+		if (polynom.head==null || head==null){
+			head=null;
+		} else {
+			PolyNode nodes[] = new PolyNode[polynom.head.getPower()+head.getPower()+1];
+			for (PolyNode node1=head;node1!=null;node1=node1.getNext()){
+				for (PolyNode node2=polynom.head;node2!=null;node2=node2.getNext()){
+					int power = node1.getPower()+node2.getPower();
+					double coefficient = node1.getCoefficient()*node2.getCoefficient();
+					if (nodes[power]!=null){
+						coefficient += nodes[power].getCoefficient();
+					}
+					if (coefficient!=0){
+						nodes[power] = new PolyNode(power, coefficient);
+					} else {
+						nodes[power]=null;
+					}
+				}			
+			}
+			int i=nodes.length;
+			head=null;
+			while (i>0 && nodes[--i]==null); // find the first non null node 
+			if (nodes[i]!=null){
+				head=nodes[i--]; // set head to be the first non-null & continue to prev degree
+				for (PolyNode node=head;i>-1;i--){ // collect all no-null nodes (backwards)
+					if (nodes[i]!=null){
+						node.setNext(nodes[i]);
+						node=nodes[i];
+					}
+				}
+			}
+			
 		}
 		return this;
 	}
