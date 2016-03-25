@@ -91,10 +91,8 @@ public class PolyNode {
 	
 	@Override
 	public String toString() {
-		if (coefficient==0){
-			return "";
-		} else {
-			StringBuilder builder = new StringBuilder();
+		StringBuilder builder = new StringBuilder();
+		if (coefficient!=0){
 			if (coefficient!=1){
 				if (coefficient==-1){
 					builder.append("-");
@@ -109,14 +107,13 @@ public class PolyNode {
 			}
 			if (power==0 && (coefficient==1 || coefficient==-1)){
 					builder.append(1);
-			}
-			if (power !=0){
+			}else  if (power !=0){
 				builder.append("x");
+				if (power>1){
+					builder.append("^").append(power);
+				}
 			}
-			if (power>1){
-				builder.append("^").append(power);
-			}
-			return builder.toString();
 		}
+		return builder.toString();
 	}
 }
