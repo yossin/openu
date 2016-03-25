@@ -1,6 +1,6 @@
-package mmn11;
 
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -24,7 +24,7 @@ public class TriangleTests {
 	public void before(){
 		origIn  = System.in;
 		origOut = System.out;
-		double s=Triangle.area(2, 2, 3)/2.0;
+		double s=(2+2+3)/2.0;
 		perimeter223=Math.pow(s*(s-2)*(s-2)*(s-3), 0.5);
 	}
 	@After
@@ -32,26 +32,7 @@ public class TriangleTests {
 		System.setIn(origIn);
 		System.setOut(origOut);
 	}
-	
-	@Test
-	public void testEdges() {
-		assertFalse(Triangle.validateEdges(1, 1, 3));
-		assertTrue(Triangle.validateEdges(1, 2, 3));
-		assertTrue(Triangle.validateEdges(2, 2, 3));
-	}
-	
-	@Test
-	public void testArea() {
-		assertEquals(1+2+3, Triangle.area(1, 2, 3));
-		assertEquals(2+2+3, Triangle.area(2, 2, 3));
-	}
-
-	@Test
-	public void testHeronPerimeter() {
-		assertEquals(0.0, Triangle.heronPerimeter(1, 2, 3), 0);
-		assertEquals(perimeter223, Triangle.heronPerimeter(2, 2, 3),0);
-	}
-	
+		
 	private String simulateRun(String input){
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		ByteArrayInputStream in = new ByteArrayInputStream(String.format("%s\n",input).getBytes());

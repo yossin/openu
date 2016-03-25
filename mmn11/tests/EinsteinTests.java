@@ -1,6 +1,6 @@
-package mmn11;
 
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -29,13 +29,6 @@ public class EinsteinTests {
 		System.setIn(origIn);
 		System.setOut(origOut);
 	}
-	
-	@Test
-	public void testReverse() {
-		assertEquals(966,Einstein.reverseNum(669));
-		assertEquals(21,Einstein.reverseNum(120));
-	}
-	
 
 	
 	private String simulateRun(String input){
@@ -55,6 +48,7 @@ public class EinsteinTests {
 	
 	@Test
 	public void testInvalid3DigitInput() {
+		simulateOutput("", Einstein.INVALID_3_DIGIT,2);
 		simulateOutput("1", Einstein.INVALID_3_DIGIT,2);
 		simulateOutput("12", Einstein.INVALID_3_DIGIT,2);
 		simulateOutput("1112", Einstein.INVALID_3_DIGIT,2);
@@ -66,14 +60,16 @@ public class EinsteinTests {
 		simulateOutput("111", Einstein.INVALID_FIRST_LAST,2);
 		simulateOutput("121", Einstein.INVALID_FIRST_LAST,2);
 	}
-
+	
+	
 	@Test
 	public void simulateValidInput() {
 		for (int i=100;i<1000;i++){
-			StringBuilder validation = new StringBuilder();
-			if (Einstein.validateNum(i, validation)){
+			if (i%10 != i/100){
 				simulateOutput(""+i, Einstein.SUCCESS,5);
 			}
 		}
 	}
+
+	
 }
