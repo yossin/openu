@@ -1,4 +1,4 @@
-package mmn14;
+
 
 import static org.junit.Assert.assertEquals;
 
@@ -7,8 +7,6 @@ import java.util.Map;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.junit.Test;
-
-import mmn14.Ex14.Password;
 
 /**
  * @author yos
