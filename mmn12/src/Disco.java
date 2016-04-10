@@ -5,6 +5,9 @@
  *
  */
 public class Disco {
+	private final static boolean TURN_ON=true;
+	private final static boolean TURN_OFF=false;
+
 
 	private LightBulb _bulb1;
 	private LightBulb _bulb2;
@@ -74,19 +77,19 @@ public class Disco {
 	 * turn all on
 	 */
 	public void turnAllOn(){
-		turn(_bulb1, true);
-		turn(_bulb2, true);
-		turn(_bulb3, true);
-		turn(_bulb4, true);
+		turn(_bulb1, TURN_ON);
+		turn(_bulb2, TURN_ON);
+		turn(_bulb3, TURN_ON);
+		turn(_bulb4, TURN_ON);
 	}
 	/**
 	 * turn all off
 	 */
 	public void turnAllOff(){
-		turn(_bulb1, false);
-		turn(_bulb2, false);
-		turn(_bulb3, false);
-		turn(_bulb4, false);
+		turn(_bulb1, TURN_OFF);
+		turn(_bulb2, TURN_OFF);
+		turn(_bulb3, TURN_OFF);
+		turn(_bulb4, TURN_OFF);
 	}
 	/**
 	 * @return true if all are on, otherwise return flase

@@ -5,16 +5,18 @@
  *
  */
 public class RGBColor {
-	private int _red=0;
-	private int _green=0;
-	private int _blue=0;
+	private final static int UPPER_VALUE=255;
+	private final static int LOWER_VALUE=0;
+	private int _red;
+	private int _green;
+	private int _blue;
 
 	/**
 	 * @param value
 	 * @return True if value is between 0-255
 	 */
 	static boolean isValid(int value){
-		return value>=0 && value<=255;
+		return value>=LOWER_VALUE && value<=UPPER_VALUE;
 	}
 	/**
 	 * @param c1
@@ -29,7 +31,7 @@ public class RGBColor {
 	 * @return 255-value
 	 */
 	private static int invert(int value){
-		return 255-value;
+		return UPPER_VALUE-value;
 	}
 
 	/**
@@ -47,7 +49,7 @@ public class RGBColor {
 	 * default constructor
 	 */
 	public RGBColor(){
-		this(0,0,0);
+		this(LOWER_VALUE,LOWER_VALUE,LOWER_VALUE);
 	}
 	
 	/**
