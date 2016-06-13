@@ -32,7 +32,7 @@ public class OpenuTests {
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {     
                  { PolynomTester.class }, 
-                 //{ PolyNodeTester.class },
+                 { PolyNodeTester.class },
            });
     }
 
